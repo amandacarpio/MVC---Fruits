@@ -6,7 +6,8 @@ const router = express.Router(); //<-- we CANOT do const app = express() because
 //route 1
 router.get("/fruits/", (req, res) => {
     // res.send(fruits);
-    res.render('all.ejs', { fruits })
+    res.render('index.ejs', { 
+        allFruits:fruits })
 });
 
 // // we are going to show a template
@@ -15,7 +16,10 @@ router.get("/fruits/", (req, res) => {
 
 // //route 2
 router.get("/fruits/:indexOfFruitsArray", (req, res) => {
-    res.send(fruits[req.params.indexOfFruitsArray]);
+    // res.send(fruits[req.params.indexOfFruitsArray]);
+    res.render('all.ejs', {
+        fruit: fruits[req.params.indexOfFruitsArray]
+    })
 });
 
 
